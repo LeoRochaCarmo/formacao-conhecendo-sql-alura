@@ -9,7 +9,7 @@ CREATE TRIGGER CalculaFaturamentoDiario
 AFTER INSERT ON itenspedidos
 FOR EACH ROW
 BEGIN
-    DELETE FROM FaturamentoDiario  
+    DELETE FROM FaturamentoDiario
     INSERT INTO FaturamentoDiario (dia,faturamento_total)
     SELECT
         DATE(datahorapedido)AS dia,
@@ -20,6 +20,4 @@ BEGIN
     ON t1.id = t2.idpedido
 
     GROUP BY dia
-END
-
-
+END;
