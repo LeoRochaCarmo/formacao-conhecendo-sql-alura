@@ -18,8 +18,7 @@ vendas_black_fridays AS(
         id_venda
     FROM vendas
     
-    GROUP BY ano_mes, id_venda
-        HAVING STRFTIME('%Y-%m', data_venda) = '2022-11'
+    WHERE STRFTIME('%Y-%m', data_venda) = '2022-11'
 
     ORDER BY ano_mes
 )
@@ -36,6 +35,3 @@ ON t1.id_venda = t2.venda_id
 GROUP BY ano_mes, fornecedor
 
 ORDER BY qtde_vendas
-
-LIMIT 1
-    

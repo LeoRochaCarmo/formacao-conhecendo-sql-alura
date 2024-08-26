@@ -18,8 +18,7 @@ vendas_black_fridays AS(
         id_venda
     FROM vendas
     
-    GROUP BY ano_mes, id_venda
-        HAVING STRFTIME('%m', data_venda) = '11'
+    WHERE STRFTIME('%m', data_venda) = '11'
 
     ORDER BY ano_mes
 )
